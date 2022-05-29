@@ -1,5 +1,7 @@
-package digital.metro.pricing.calculator;
+package digital.metro.pricing.calculator.controller;
 
+import digital.metro.pricing.calculator.dto.*;
+import digital.metro.pricing.calculator.service.BasketCalculatorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,6 +1,6 @@
-package digital.metro.pricing.calculator;
+package digital.metro.pricing.calculator.repository;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.math.*;
 import java.util.Map;
@@ -10,8 +10,8 @@ import static java.util.Map.entry;
 /**
  * A dummy implementation for testing purposes. In production, we would get real prices from a database.
  */
-@Component
-public class PriceRepository {
+@Repository
+public class PriceRepositoryImpl implements PriceRepository {
 
     // article prices were calculated and declared as dummy data based on the expected result of calculateBasket.sh
     /*

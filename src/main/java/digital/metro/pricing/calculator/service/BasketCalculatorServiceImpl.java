@@ -1,14 +1,16 @@
-package digital.metro.pricing.calculator;
+package digital.metro.pricing.calculator.service;
 
+import digital.metro.pricing.calculator.dto.*;
+import digital.metro.pricing.calculator.repository.PriceRepository;
 import org.springframework.beans.factory.annotation.*;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.math.*;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-@Component
-public class BasketCalculatorService {
+@Service
+public class BasketCalculatorServiceImpl implements BasketCalculatorService {
 
     private final PriceRepository priceRepository;
 
@@ -16,10 +18,11 @@ public class BasketCalculatorService {
     private Integer defaultPriceScale;
 
     @Autowired
-    public BasketCalculatorService(PriceRepository priceRepository) {
+    public BasketCalculatorServiceImpl(PriceRepository priceRepository) {
         this.priceRepository = priceRepository;
     }
 
+    @Override
     public BasketCalculationResult calculateBasket(Basket basket) {
         Map<String, BigDecimal> pricedArticles = basket.getEntries().stream()
                 .collect(Collectors.toMap(
@@ -36,6 +39,7 @@ public class BasketCalculatorService {
         return new BasketCalculationResult(basket.getCustomerId(), pricedArticles, totalAmount);
     }
 
+    @Override
     public BigDecimal calculateArticle(BasketEntry basketEntry, String customerId) {
         String articleId = basketEntry.getArticleId();
         BigDecimal articleQuantity = basketEntry.getQuantity();

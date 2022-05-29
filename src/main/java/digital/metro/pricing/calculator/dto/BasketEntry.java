@@ -1,11 +1,11 @@
-package digital.metro.pricing.calculator;
+package digital.metro.pricing.calculator.dto;
 
 import java.math.BigDecimal;
 
-public class BasketEntry {
+public final class BasketEntry {
 
-    private String articleId;
-    private BigDecimal quantity;
+    private final String articleId;
+    private final BigDecimal quantity;
 
     public BasketEntry(String articleId, BigDecimal quantity) {
         this.articleId = articleId;
