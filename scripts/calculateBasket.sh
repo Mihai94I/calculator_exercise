@@ -13,3 +13,4 @@ curl -X POST http://localhost:8080/calculator/calculate-basket \
 #  },
 #  "totalAmount":23.26
 #}
+cmd /k
